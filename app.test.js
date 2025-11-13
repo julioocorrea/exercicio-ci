@@ -2,7 +2,7 @@ const request = require("supertest");
 const app = require("./app"); 
 
 describe("API Olá Mundo", () => {
-  it('Deve retornar "OOlá Planeta DevOps!" na rota /', async () => {
+  it('Deve retornar "Olá Planeta DevOps!" na rota /', async () => {
     const response = await request(app).get("/");
     expect(response.statusCode).toBe(200);
     expect(response.text).toBe("Olá Planeta DevOps!");
