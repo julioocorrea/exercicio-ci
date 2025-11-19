@@ -101,9 +101,9 @@ jobs:
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
 
-  # ---------------------------------------------------
+  # ----------------------------------------------------
   # JOB 2: CD (DEPLOY LOCAL)
-  # ---------------------------------------------------
+  # ----------------------------------------------------
   deploy-to-local:
     # Só roda se for push na main
     if: github.event_name == 'push' && github.ref == 'refs/heads/main'
@@ -129,6 +129,7 @@ jobs:
           password: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Fazer Deploy com Docker Compose
+        shell: cmd
         run: |
           echo "Iniciando deploy seguro..."
           docker-compose pull
